@@ -1,0 +1,33 @@
+{
+  "name": "opensw_2021aut",
+  "version": "1.0.0",
+  "description": "openSwproject_2021_TwoRolless",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yujjineee/openSW_2021Aut.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yujjineee/openSW_2021Aut/issues"
+  },
+  "homepage": "https://github.com/yujjineee/openSW_2021Aut#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.1.3",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "html": "^1.0.0",
+    "http": "^0.0.1-security",
+    "mongoimport": "^1.0.6",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.13",
+    "notenv": "^2.0.3"
+  }
+}
