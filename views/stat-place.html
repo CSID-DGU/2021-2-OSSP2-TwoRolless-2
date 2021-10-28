@@ -56,7 +56,7 @@
                             <h1 class="fw-bolder mb-3">여기에는 된다면 조건 체크하는 칸을 만들고 싶어여 ㅇㅁㅇ
                             </h1>
                             <p class="lead fw-normal text-muted mb-4"> 조건은
-                                지역 - 서울/대전/대구/부산 
+                                지역 - 서울/대전/대구/부산
                                 수용 인원 수 - ~500명/~1000명/~2000명
                                 놀이방/수유실/장애인시설/주차시설 여부
                                 로 체크해서,, 됐으면 좋겠당 </p>
@@ -68,39 +68,50 @@
         </header>
         <!-- Page Content-->
         <section class="py-2">
-            <div class="container px-5 my-4">
-                <div class="text-center mb-5">
-                    <form id="theater-info-list">
+            <form id="theater-list">
+                <div class="container px-5 my-4">
+                    <div class="text-center mb-5">
                         <h1 class="fw-bolder">공연장 정보 탐색</h1>
                         <p class="lead fw-normal text-muted mb-0">by TwoRoLLess</p>
+                    </div>
+                    <tbody>
+                        {% for theater in theaters}
+                        <tr>
+                            <td>{{theater.BUILDING_NAME}}</td>
+                        </tr>
+                        <div class="row gx-5">
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-5">
+                                    <a class="h3 fw-bolder text-decoration-none link-dark stretched-link"
+                                        href="#!">{{theater.BUILDING_NAME}}</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-5">
+                                    <a class="h3 fw-bolder text-decoration-none link-dark stretched-link"
+                                        href="#!">Project
+                                        name</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-5 mb-lg-0">
+                                    <a class="h3 fw-bolder text-decoration-none link-dark stretched-link"
+                                        href="#!">Project
+                                        name</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="position-relative">
+                                    <a class="h3 fw-bolder text-decoration-none link-dark stretched-link"
+                                        href="#!">Project
+                                        name</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </tbody>
                 </div>
-                <div class="row gx-5">
-                    <div class="col-lg-6">
-                        <div class="position-relative mb-5">
-                            <a class="h3 fw-bolder text-decoration-none link-dark stretched-link"
-                                href="#!">{{info.BUILDING_NAME}}</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="position-relative mb-5">
-                            <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project
-                                name</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="position-relative mb-5 mb-lg-0">
-                            <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project
-                                name</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="position-relative">
-                            <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project
-                                name</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </section>
         <section class="py-5 bg-light">
             <div class="container px-5 my-5">
