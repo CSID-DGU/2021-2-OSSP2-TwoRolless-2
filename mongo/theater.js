@@ -68,4 +68,4 @@ const infoSchema = new Schema({
   },
 })
 
-module.exports.Theater = mongoose.model('theaters', infoSchema)
+module.exports.theaters = mongoose.model('theaters', infoSchema)

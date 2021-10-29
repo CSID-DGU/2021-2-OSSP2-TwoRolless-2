@@ -68,17 +68,48 @@
         </header>
         <!-- Page Content-->
         <section class="py-2">
-            <form id="theater-list">
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-1 font-weight-bold"> 공연장 목록 </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="150%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>공연장 이름</th>
+                                    <th>도시</th>
+                                    <th>주소</th>
+                                    <th>좌석 수</th>
+                                </tr>
+                            </thead>
+                            <% for (var data in data) { %>
+                            <tbody>
+                                <tr>
+                                    <td><%= data.BUILDING_NAME %></a></td>
+                                    <td><%= data.CITY %></td>
+                                    <td><%= data.ADDRESS %></td>
+                                    <td><%= data.TOTAL_SEAT_NUM %></td>
+                                </tr>
+                            </tbody>
+                            <% } %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- <form id="theater-list">
                 <div class="container px-5 my-4">
                     <div class="text-center mb-5">
                         <h1 class="fw-bolder">공연장 정보 탐색</h1>
                         <p class="lead fw-normal text-muted mb-0">by TwoRoLLess</p>
                     </div>
                     <tbody>
-                        <% for (var data in data) {%>
+                        <% for (var theater in data) {%>
                             <tr>
                                 <td>
-                                    공연장 이름: <%= data.BUILDING_NAME %> <br>
+                                    공연장 이름: <%= theater.BUILDING_NAME %> <br>
                                 </td>
                                 <%} %>
                             </tr>
@@ -113,7 +144,7 @@
                                 </div>
                     </tbody>
                 </div>
-            </form>
+            </form> -->
         </section>
         <section class="py-5 bg-light">
             <div class="container px-5 my-5">
