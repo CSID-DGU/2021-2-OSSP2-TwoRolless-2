@@ -1,21 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const theater = require('../mongo/theater')
+const Theater = require('../mongo/theater')
 
 router.use(express.static('views'))
 
-router.route('/place')
-    .get(async (req, res, next) => {
-        try {
-            const theaters = await theater.find({})
-            res.json(theaters)
-        } catch (err) {
-            console.error(err)
-            next(err)
-        }
+
+router.get("/place", (req, res) => {
+    Theater.Theater.find({}, function (err, theater) {
+        res.render('stat-place.html', {data: theater})
     })
-
-
-
+})
 
 module.exports = router

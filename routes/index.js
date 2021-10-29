@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
-const Theater = require('../mongo/theater')
-
 router.use(express.static('views'))
 
 router.get('/', (req, res, next) => {
@@ -74,15 +71,15 @@ router.get('/show/play', (req, res, next) => {
 
 // ===================== show ==========================
 
-router.get('/stat/place', async (req, res, next) => {
-    try {
-        const theaters = await Theater.find({})
-        res.render('stat-place.html', { theaters })
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
-})
+// router.get('/stat/place', async (req, res, next) => {
+//     try {
+//         const theaters = await Theater.find({})
+//         res.render('stat-place.html', { theaters })
+//     } catch (err) {
+//         console.error(err)
+//         next(err)
+//     }
+// })
 
 router.get('/stat/trend', (req, res, next) => {
     try {
