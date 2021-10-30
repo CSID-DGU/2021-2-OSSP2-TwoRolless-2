@@ -84,13 +84,14 @@
                                     <th>좌석 수</th>
                                 </tr>
                             </thead>
-                            <% for (var data in data) { %>
+                            <% for (var i in data) { %>
+                                <%var tmp = data[i]; %>
                             <tbody>
                                 <tr>
-                                    <td><%= data.BUILDING_NAME %></a></td>
-                                    <td><%= data.CITY %></td>
-                                    <td><%= data.ADDRESS %></td>
-                                    <td><%= data.TOTAL_SEAT_NUM %></td>
+                                    <td><%= tmp.BUILDING_NAME %></a></td>
+                                    <td><%= tmp.CITY %></td>
+                                    <td><%= tmp.ADDRESS %></td>
+                                    <td><%= tmp.TOTAL_SEAT_NUM %></td>
                                 </tr>
                             </tbody>
                             <% } %>
