@@ -69,26 +69,6 @@ router.get('/show/play', (req, res, next) => {
     }
 })
 
-// ===================== show ==========================
-
-// router.get('/stat/place', async (req, res, next) => {
-//     try {
-//         const theaters = await Theater.find({})
-//         res.render('stat-place.html', { theaters })
-//     } catch (err) {
-//         console.error(err)
-//         next(err)
-//     }
-// })
-
-router.get('/stat/trend', (req, res, next) => {
-    try {
-        res.render('stat-trend.html')
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
-})
 
 
 module.exports = router

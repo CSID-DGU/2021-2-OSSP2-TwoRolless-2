@@ -75,7 +75,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="150%" cellspacing="0">
+                        <table class="table table-hover" id="dataTable" width="150%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>공연장 이름</th>
@@ -85,19 +85,28 @@
                                 </tr>
                             </thead>
                             <% for (var i in data) { %>
-                                <%var tmp = data[i]; %>
-                            <tbody>
-                                <tr>
-                                    <td><%= tmp.BUILDING_NAME %></a></td>
-                                    <td><%= tmp.CITY %></td>
-                                    <td><%= tmp.ADDRESS %></td>
-                                    <td><%= tmp.TOTAL_SEAT_NUM %></td>
-                                </tr>
-                            </tbody>
-                            <% } %>
+                                <!-- <%var tmp = data[i]; %> -->
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href = '/stat/place/<%= data[i]._id %>'><%= data[i].BUILDING_NAME %></a>
+                                        </td>
+                                        <td>
+                                            <%= data[i].CITY %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].ADDRESS %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].TOTAL_SEAT_NUM %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
                         </table>
                     </div>
                 </div>
+
             </div>
             <!-- <form id="theater-list">
                 <div class="container px-5 my-4">
