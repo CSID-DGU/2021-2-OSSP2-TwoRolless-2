@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+
 router.use(express.static('views'))
 
 router.get('/', (req, res, next) => {
@@ -68,7 +69,6 @@ router.get('/show/play', (req, res, next) => {
         next(err)
     }
 })
-
 
 
 module.exports = router

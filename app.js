@@ -11,7 +11,6 @@ connect()
 const app = express()
 const router = express.Router()
 
-app.use(express.static('views'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
