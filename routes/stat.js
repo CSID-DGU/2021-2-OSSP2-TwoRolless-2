@@ -15,7 +15,6 @@ router.get("/place", (req, res) => {
         .sort({ "TOTAL_SEAT_NUM": -1 })
 })
 
-
 router.get("/place/:id", (req, res) => {
     theaters.theaters.findOne({_id: req.params.id}, (err, theater) => {
         try {
