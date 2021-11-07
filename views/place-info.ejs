@@ -88,23 +88,39 @@
                 </div>
                 <div class="row gx-5 justify-content-center">                    
                     <div class="col-lg-10">
-                        <img class="img-fluid rounded-3 mb-5"
-                            src="https://w.namu.la/s/9b7194fc88bd6c36c484273bf153f116e47df16d8112691483123c8832bd9f7203a2964ad8f2293fe540e5c939f917d6084b3b7c23aad1c5523e4198ba7d317aa5d18f9aad63e7716c7b547fba411204" alt="..." /></div>
-                    <!-- <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5"
-                            src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div> -->
-                    <!-- <div class="row-lg-3"><img class="img-fluid rounded-3 mb-5"
-                            src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div> -->
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center mb-5">
-                            <p class="lead fw-normal text-muted">
-                                ++ 카카오맵 추가하기
-                                , 놀이방 등등 Table 만들어 표 넣기
-                                , True -> O, False -> X 로 바꾸어 넣기
-                            </p>
-                        </div>
-                    </div>
+                        <div id="map" style="width:100%;height:350px;"></div>
+                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d63e3e66c0ccc129fdb7f3d72fcde9e5&libraries=services"></script>
+                        <script>
+                            var mapContatiner = document.getElementById('map'),
+                                mapOption = {
+                                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                                level: 3
+                            }
+                            
+                            var map = new kakao.maps.Map(mapContainer, mapOption)
+
+                            var geocoder = new kakao.maps.services.Geocoder()
+
+                            geocoder.addressSearch('<%= data?.ADDRESS %>', function (result, status) {
+
+                                if(status === kakao.maps.services.Status.OK) {
+
+                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x)
+                                    
+                                    var marker = new kakao.maps.Marker({
+                                        map: map,
+                                        position: coords
+                                    })
+
+                                    var infowindow = new kakao.maps.InfoWindow({
+                                        content: '<div style = "width: 150px; text-allign: center; padding: 6px 0;"> 장소 정보 </div>'
+                                    })
+                                    infowindow.open(map, marker)
+
+                                    map.setCenter(coords)
+                                }
+                            })
+                        </script>
                 </div>
             </div>
         </section>
