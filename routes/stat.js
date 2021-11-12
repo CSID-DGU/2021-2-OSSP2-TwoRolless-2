@@ -25,6 +25,7 @@ router.get("/place/:id", (req, res) => {
     })
 })
 
+
 // ====================================
 
 router.get('/trend', (req, res, next) => {

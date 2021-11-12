@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>공개소프트웨어 2조 TwoRoLLess</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/two.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/two.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -29,8 +29,8 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/SNS">SNS</a></li>
                         <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
                         <li class="nav-item"><a class="nav-link" href="/stat/trend">공연 트렌드</a></li>
                         <li class="nav-item"><a class="nav-link" href="/stat/place">공연장 정보</a></li>
                         <li class="nav-item dropdown">
@@ -88,24 +88,84 @@
                 </div>
                 <div class="row gx-5 justify-content-center">                    
                     <div class="col-lg-10">
-                        <img class="img-fluid rounded-3 mb-5"
-                            src="https://w.namu.la/s/9b7194fc88bd6c36c484273bf153f116e47df16d8112691483123c8832bd9f7203a2964ad8f2293fe540e5c939f917d6084b3b7c23aad1c5523e4198ba7d317aa5d18f9aad63e7716c7b547fba411204" alt="..." /></div>
-                    <!-- <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5"
-                            src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div> -->
-                    <!-- <div class="row-lg-3"><img class="img-fluid rounded-3 mb-5"
-                            src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div> -->
+                        <div id="map" style="width:100%;height:350px;"></div>
+                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d63e3e66c0ccc129fdb7f3d72fcde9e5&libraries=services"></script>
+                        <script>
+                            var mapContatiner = document.getElementById('map'),
+                                mapOption = {
+                                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                                level: 3
+                            }
+                            
+                            var map = new kakao.maps.Map(mapContainer, mapOption)
+
+                            var geocoder = new kakao.maps.services.Geocoder()
+
+                            geocoder.addressSearch('<%= data?.ADDRESS %>', function (result, status) {
+
+                                if(status === kakao.maps.services.Status.OK) {
+
+                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x)
+                                    
+                                    var marker = new kakao.maps.Marker({
+                                        map: map,
+                                        position: coords
+                                    })
+
+                                    var infowindow = new kakao.maps.InfoWindow({
+                                        content: '<div style = "width: 150px; text-allign: center; padding: 6px 0;"> 장소 정보 </div>'
+                                    })
+                                    infowindow.open(map, marker)
+
+                                    map.setCenter(coords)
+                                }
+                            })
+                        </script>
                 </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center mb-5">
-                            <p class="lead fw-normal text-muted">
-                                ++ 카카오맵 추가하기
-                                , 놀이방 등등 Table 만들어 표 넣기
-                                , True -> O, False -> X 로 바꾸어 넣기
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <!--지도 api-->
+                <div id="map" style="width:100%; height:380px;"></div>
+
+                <script type="text/javascript"
+                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d63e3e66c0ccc129fdb7f3d72fcde9e5&libraries=services"></script>
+                <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                        mapOption = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                            level: 3 // 지도의 확대 레벨
+                        };
+
+                    // 지도를 생성합니다    
+                    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                    // 주소-좌표 변환 객체를 생성합니다
+                    var geocoder = new kakao.maps.services.Geocoder();
+
+                    // 주소로 좌표를 검색합니다
+                    geocoder.addressSearch('<%= data?.ADDRESS %>', function (result, status) {
+
+                        // 정상적으로 검색이 완료됐으면 
+                        if (status === kakao.maps.services.Status.OK) {
+
+                            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                            // 결과값으로 받은 위치를 마커로 표시합니다
+                            var marker = new kakao.maps.Marker({
+                                map: map,
+                                position: coords
+                            });
+
+                            // 인포윈도우로 장소에 대한 설명을 표시합니다
+                            var infowindow = new kakao.maps.InfoWindow({
+                                content: '<div style="width:150px;text-align:center;padding:6px 0;"><%= data?.BUILDING_NAME %></div>'
+                            });
+                            infowindow.open(map, marker);
+
+                            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                            map.setCenter(coords);
+                        }
+                    });
+                </script>
             </div>
         </section>
     </main>
@@ -114,7 +174,7 @@
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto">
-                    <div class="small m-0 text-white">Copyright &copy; Your Website 2021</div>
+                    <div class="small m-0 text-white">Copyright &copy; TwoRolless 2021 </div>
                 </div>
                 <div class="col-auto">
                     <a class="link-light small" href="#!">Privacy</a>
@@ -131,5 +191,4 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
-
 </html>
