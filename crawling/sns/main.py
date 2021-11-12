@@ -6,7 +6,7 @@ twitter_consumer_key = ""
 twitter_consumer_secret = ""
 twitter_access_token = ""
 twitter_access_secret = ""
-// python twitter API key
+# python twitter API key
 
 import twitter
 import csv
@@ -20,7 +20,7 @@ twitter_api = twitter.Api(consumer_key=twitter_consumer_key,
                           tweet_mode='extended')
 
 indexLength = 0
-def time_ko(text): // time string 
+def time_ko(text): # time string 
     day = ''
     date = ''
     month = ''
@@ -58,7 +58,7 @@ def time_ko(text): // time string
     return("["+text_list[5]+"."+text_list[1]+"."+text_list[2]+" "+text_list[3]+"]")
 
 
-def crawllTwit(snsname, findtag): // sns태그, 극 이름으로 태그 설정 
+def crawllTwit(snsname, findtag): # sns태그, 극 이름으로 태그 설정 
     global indexLength
     account = snsname
     statuses = twitter_api.GetUserTimeline(screen_name=account, count=100, include_rts=True, exclude_replies=False)
@@ -128,8 +128,8 @@ if __name__ == '__main__':
         crawllTwit("@clipservice", "작은아씨들")
         crawllTwit("@clipservice", "하데스타운")
         crawllTwit("@doublek_ent", "인사이드")
-        crawllTwit("@CEF56xyFgPDj", "트위터") // 테스트 계정
-        with open('경로', 'w', encoding='UTF-8-sig') as make_file: // 경로 지정 
+        crawllTwit("@CEF56xyFgPDj", "트위터") # 테스트 계정
+        with open('경로', 'w', encoding='UTF-8-sig') as make_file: # 경로 지정 
             json.dump(twitterFile, make_file, indent="\t", ensure_ascii=False)
         print("cycle end")
         print("sleep 30 second")
