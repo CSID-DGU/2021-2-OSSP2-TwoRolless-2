@@ -48,22 +48,22 @@ const infoSchema = new Schema({
   },
 
   PLAYROOM: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 
   FEEDROOM: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 
   DISABLED: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 
   PARKING: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 })

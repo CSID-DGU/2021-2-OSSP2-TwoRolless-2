@@ -55,72 +55,49 @@
                             <h1 class="fw-bolder">
                                 <td>
                                     <%= data?.BUILDING_NAME %>
+                                    <br><br>
                                 </td>
                             </h1>
-                            <p class="lead fw-normal text-muted mb-0">
-                                <td>
-                                    CITY: <%= data?.CITY %> <br>
-                                </td>
-                                <td>
-                                    ADDRESS: <%= data?.ADDRESS %> <br>
-                                </td>
-                                <td>
-                                    TYPE: <%= data?.TYPE %> <br>
-                                </td>
-                                <td>
-                                    OPENYEAR: <%= data?.OPENYEAR %> <br>
-                                </td>
-                                <td>
-                                    PLAYROOM: <%= data?.PLAYROOM %> <br>
-                                </td>
-                                <td>
-                                    FEEDROOM: <%= data?.FEEDROOM %> <br>
-                                </td>
-                                <td>
-                                    DISABLED: <%= data?.DISABLED %> <br>
-                                </td>
-                                <td>
-                                    PARKING: <%= data?.PARKING %> <br>
-                                </td> 
-                            </p>
+                            <table class="table table-bordered", style = "width: 130%; margin-left: auto; margin-right: auto;">
+                                <tr style = "background-color:lightskyblue; font-size: x-large;">
+                                    <td>도시</td>
+                                    <td>주소</td>
+                                    <td>공연장 타입</td>
+                                    <td>개관년도</td>
+                                    <td>놀이방</td>
+                                    <td>수유실</td>
+                                    <td>장애인 시설</td>
+                                    <td>주차</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%= data?.CITY %>
+                                    </td>
+                                    <td>
+                                        <%= data?.ADDRESS %>
+                                    </td>
+                                    <td>
+                                        <%= data?.TYPE %>
+                                    </td>
+                                    <td>
+                                        <%= data?.OPENYEAR %>
+                                    </td>
+                                    <td>
+                                        <%= data?.PLAYROOM %>
+                                    </td>
+                                    <td>
+                                        <%= data?.FEEDROOM %>
+                                    </td>
+                                    <td>
+                                        <%= data?.DISABLED %>
+                                    </td>
+                                    <td>
+                                        <%= data?.PARKING %>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                </div>
-                <div class="row gx-5 justify-content-center">                    
-                    <div class="col-lg-10">
-                        <div id="map" style="width:100%;height:350px;"></div>
-                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d63e3e66c0ccc129fdb7f3d72fcde9e5&libraries=services"></script>
-                        <script>
-                            var mapContatiner = document.getElementById('map'),
-                                mapOption = {
-                                center: new kakao.maps.LatLng(33.450701, 126.570667),
-                                level: 3
-                            }
-                            
-                            var map = new kakao.maps.Map(mapContainer, mapOption)
-
-                            var geocoder = new kakao.maps.services.Geocoder()
-
-                            geocoder.addressSearch('<%= data?.ADDRESS %>', function (result, status) {
-
-                                if(status === kakao.maps.services.Status.OK) {
-
-                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x)
-                                    
-                                    var marker = new kakao.maps.Marker({
-                                        map: map,
-                                        position: coords
-                                    })
-
-                                    var infowindow = new kakao.maps.InfoWindow({
-                                        content: '<div style = "width: 150px; text-allign: center; padding: 6px 0;"> 장소 정보 </div>'
-                                    })
-                                    infowindow.open(map, marker)
-
-                                    map.setCenter(coords)
-                                }
-                            })
-                        </script>
                 </div>
 
                 <!--지도 api-->
@@ -152,13 +129,18 @@
                             // 결과값으로 받은 위치를 마커로 표시합니다
                             var marker = new kakao.maps.Marker({
                                 map: map,
-                                position: coords
+                                position: coords,
+                                clickable: true
                             });
+
+
 
                             // 인포윈도우로 장소에 대한 설명을 표시합니다
                             var infowindow = new kakao.maps.InfoWindow({
-                                content: '<div style="width:150px;text-align:center;padding:6px 0;"><%= data?.BUILDING_NAME %></div>'
+                                content: '<div style="width:150px;text-align:center;padding:6px 0;"><%= data?.BUILDING_NAME %></div>',
+                                removable: true
                             });
+
                             infowindow.open(map, marker);
 
                             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
@@ -191,4 +173,5 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>
