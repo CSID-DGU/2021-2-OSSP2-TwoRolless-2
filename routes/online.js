@@ -1,43 +1,35 @@
 const express = require('express')
 const router = express.Router()
 
-
 router.use(express.static('views'))
 
-router.get('/', (req, res, next) => {
+
+router.get('/concert', (req, res, next) => {
     try {
-        res.render('index.html')
+        res.render('online-concert.html')
     } catch (err) {
         console.error(err)
         next(err)
     }
 })
 
-router.get('/about', (req, res, next) => {
+router.get('/musical', (req, res, next) => {
     try {
-        res.render('about.html')
+        res.render('online-musical.html')
     } catch (err) {
         console.error(err)
         next(err)
     }
 })
 
-router.get('/SNS', (req, res, next) => {
+router.get('/play', (req, res, next) => {
     try {
-        res.render('SNS.html')
+        res.render('online-play.html')
     } catch (err) {
         console.error(err)
         next(err)
     }
 })
 
-router.get('/faq', (req, res, next) => {
-    try {
-        res.render('faq.html')
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
-})
 
 module.exports = router
