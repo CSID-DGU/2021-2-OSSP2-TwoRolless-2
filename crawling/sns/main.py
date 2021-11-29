@@ -2,100 +2,77 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import tweepy
+import traceback
+import time
+import pymongo
+from tweepy import OAuthHandler
+from pymongo import MongoClient
+from pymongo.cursor import CursorType
+
 twitter_consumer_key = ""
 twitter_consumer_secret = ""
 twitter_access_token = ""
 twitter_access_secret = ""
-# python twitter API key
 
-import twitter
-import csv
-import json
-import time
+auth = OAuthHandler(twitter_consumer_key, twitter_consumer_secret)
+auth.set_access_token(twitter_access_token, twitter_access_secret)
+api = tweepy.API(auth)
 
-twitter_api = twitter.Api(consumer_key=twitter_consumer_key,
-                          consumer_secret=twitter_consumer_secret,
-                          access_token_key=twitter_access_token,
-                          access_token_secret=twitter_access_secret,
-                          tweet_mode='extended')
-
-indexLength = 0
-def time_ko(text): # time string 
-    day = ''
-    date = ''
-    month = ''
-    year = ''
-    clock = ''
-    text_list = text.split()
-
-    if text_list[1] == 'Jan':
-        text_list[1] = '01'
-    elif text_list[1] == 'Feb':
-        text_list[1] = '02'
-    elif text_list[1] == 'Mar':
-        text_list[1] = '03'
-    elif text_list[1] == 'Apr':
-        text_list[1] = '04'
-    elif text_list[1] == 'May':
-        text_list[1] = '05'
-    elif text_list[1] == 'Jun':
-        text_list[1] = '06'
-    elif text_list[1] == 'Jul':
-        text_list[1] = '07'
-    elif text_list[1] == 'Aug':
-        text_list[1] = '08'
-    elif text_list[1] == 'Sep':
-        text_list[1] = '09'
-    elif text_list[1] == 'Oct':
-        text_list[1] = '10'
-    elif text_list[1] == 'Nov':
-        text_list[1] = '11'
-    elif text_list[1] == 'Dec':
-        text_list[1] = '12'
-    else:
-        text_list[1] = '오류'
-
-    return("["+text_list[5]+"."+text_list[1]+"."+text_list[2]+" "+text_list[3]+"]")
-
-
-def crawllTwit(snsname, findtag): # sns태그, 극 이름으로 태그 설정 
-    global indexLength
+def crawllTwit(snsname, findtag):
     account = snsname
-    statuses = twitter_api.GetUserTimeline(screen_name=account, count=100, include_rts=True, exclude_replies=False)
+    tweets = api.user_timeline(screen_name=account, count=100, include_rts=True, exclude_replies=False, tweet_mode='extended')
+
     snsList = []
     snsTime = []
+    pic = []
+
     i = 0
-    for status in statuses:
-        flag = status.full_text.find(findtag)
+    for tweet in tweets:
+        flag = tweet.full_text.find(findtag)
         if flag >= 0:
-            snsList.append(status.full_text)
-            snsTime.append(status.created_at)
+            snsList.append(tweet.full_text)
+            snsTime.append(tweet.created_at)
             i += 1
+            media = tweet.entities.get('media', [])
+            if (len(media) > 0):
+                pic.append(media[0]['media_url'])
+            else:
+                pic.append("")
+
     j = 0
     while j < len(snsList):
         if j == 10:
             break
         snsList[j] = snsList[j].replace('&lt;', '<')
         snsList[j] = snsList[j].replace('&gt;', '>')
-        snsList[j] = snsList[j].replace(' ▶️', ' ⇒ ')
+        snsList[j] = snsList[j].replace('▶️', ' ⇒ ')
         j += 1
 
+    mydb = my_client['test']
+    mycol = mydb['tweetSNS']
+
     for k in range(0, len(snsList)):
-        if k == 10:
+        if k == 15:
             break
-        temp = dict()
-        temp["tag"] = findtag
-        temp["time"] = time_ko(snsTime[k])
-        temp["text"] = snsList[k]
-        twitterFile[indexLength] = temp
-        indexLength += 1
+        x = mycol.insert_one(
+            {
+                "tag": findtag,
+                "time": snsTime[k],
+                "text": snsList[k],
+                "img": pic[k]
+            }
+        )
+
+my_client = MongoClient("mongodb://localhost:27017/")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while True:
         print("cycles start")
-        indexLength = 0
-        twitterFile = dict()
+        mydb = my_client['test']
+        mycol = mydb['tweetSNS']
+        mycol.remove({})
         crawllTwit("@M_dogcat21", "개와 고양이의 시간")
         crawllTwit("@Trace_U", "트레이스유")
         crawllTwit("@T2N_Media", "분장실")
@@ -128,14 +105,11 @@ if __name__ == '__main__':
         crawllTwit("@clipservice", "작은아씨들")
         crawllTwit("@clipservice", "하데스타운")
         crawllTwit("@doublek_ent", "인사이드")
-        crawllTwit("@CEF56xyFgPDj", "트위터") # 테스트 계정
-        with open('경로', 'w', encoding='UTF-8-sig') as make_file: # 경로 지정 
-            json.dump(twitterFile, make_file, indent="\t", ensure_ascii=False)
+        crawllTwit("@CEF56xyFgPDj", "트위터")
         print("cycle end")
-        print("sleep 30 second")
+        print("sleep 30 seconds")
         time.sleep(30)
         print("sleep end")
-
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
