@@ -7,6 +7,9 @@ const showRouter = require('./routes/show')
 const statRouter = require('./routes/stat')
 const onlineRouter = require('./routes/online')
 
+require('dotenv').config()
+process.env.PORT
+
 const connect = require('./mongo')
 connect()
 
@@ -16,7 +19,7 @@ const router = express.Router()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.set('port', process.env.PORT || 5000)
+app.set('port', process.env.PORT || PORT)
 app.set('view engine', 'ejs')
 app.engine('html', require('ejs').renderFile)
 

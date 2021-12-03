@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-const connect = () => {
-    if (process.env.NODE_ENV !== 'production') {
-        mongoose.set('debug', true)
-    }
+require('dotenv').config()
+MONGO_URI = process.env.MONGO_URI
 
-    mongoose.connect('mongodb+srv://Yujin:tworolless00@tworolless.cwje0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+const connect = () => {
+    mongoose.connect(MONGO_URI, {
         dbName: 'TwoRolless',
     }, (err) => {
         if (err) {
