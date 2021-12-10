@@ -14,39 +14,56 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="/">TWOROLLESS</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/stat/trend">공연 트렌드</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/stat/place">공연장 정보</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    공연 정보 (오프라인)
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/show/musical">뮤지컬</a></li>
-                                    <li><a class="dropdown-item" href="/show/play">연극</a></li>
-                                    <li><a class="dropdown-item" href="/show/concert">콘서트</a></li>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="/">TWOROLLESS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                공연 트렌드
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/stat/show-trend">공연 트렌드</a></li>
+                                <li><a class="dropdown-item" href="/stat/place-trend">공연장 트렌드</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            공연 정보 (온라인)
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                            <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
-                            <li><a class="dropdown-item" href="/online/play">연극</a></li>
-                            <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
-                        </ul>
+                        <li class="nav-item"><a class="nav-link" href="/stat/place">공연장 정보</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                공연 정보 (오프라인)
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/show/musical">뮤지컬</a></li>
+                                <li><a class="dropdown-item" href="/show/play">연극</a></li>
+                                <li><a class="dropdown-item" href="/show/concert">콘서트</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                공연 정보 (온라인)
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
+                                <li><a class="dropdown-item" href="/online/play">연극</a></li>
+                                <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -58,8 +75,9 @@
                     <div class="col-lg-8 col-xxl-6">
                         <div class="text-center my-5">
                             <h1 class="fw-bolder mb-3"> 공연 정보 통합 제공 웹 사이트 </h1>
-                            <p class="lead fw-normal text-muted mb-4"> 2021 2학기 동국대학교 컴퓨터 공학과 <br> 공개 소프트웨어 프로젝트 <br> 2조 TwoRolless </p>
-                            <a class="btn btn-primary btn-lg" href="#scroll-target"> 자세히 보기 </a>
+                            <p class="lead fw-normal text-muted mb-4"> 2021 2학기 동국대학교 컴퓨터 공학과 <br> 공개 소프트웨어 프로젝트 <br> 2조
+                                TwoRolless </p>
+                            <a class="btn btn-primary btn-lg" href="#scroll-target"> 더 알아보기 </a>
                         </div>
                     </div>
                 </div>
@@ -70,7 +88,8 @@
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0"
-                            src="https://cdn.pixabay.com/photo/2017/10/10/04/55/times-square-2835995_1280.jpg" alt="..." /></div>
+                            src="https://cdn.pixabay.com/photo/2017/10/10/04/55/times-square-2835995_1280.jpg"
+                            alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder"> 1. 예매처 정보 통합 제공 </h2>
                         <p class="lead fw-normal text-muted mb-0">
@@ -89,7 +108,8 @@
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
-                            src="https://cdn.pixabay.com/photo/2014/03/22/22/17/phone-292994_1280.jpg" alt="..." /></div>
+                            src="https://cdn.pixabay.com/photo/2014/03/22/22/17/phone-292994_1280.jpg" alt="..." />
+                    </div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder"> 2. SNS 정보 실시간 제공 </h2>
                         <p class="lead fw-normal text-muted mb-0">
@@ -97,7 +117,7 @@
                             - Twitter에 개별적으로 올라와있는 SNS들을 공연에 대한 주요 정보로 필터링하여
                             공연 일정, 캐스팅 현황, 예매 안내 등의 공지들만 모아서 확인할 수 있게 제공합니다. <br>
                             - 각각의 연극 카테고리를 제공하여 원하는 연극의 공지들만 확인할 수 있습니다. <br>
-                            </p>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -107,7 +127,8 @@
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0"
-                            src="https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_1280.jpg" alt="..." /></div>
+                            src="https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_1280.jpg"
+                            alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder"> 3. 공연 정보 분석 및 통계 제공 </h2>
                         <p class="lead fw-normal text-muted mb-0">
@@ -130,7 +151,8 @@
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4"
-                                src="https://3.bp.blogspot.com/-vPkUjyegSyI/WKFi__im_fI/AAAAAAABBrs/w2abUDRN8ZQSsMWSlm1fg-Y5yhovYaOKQCLcB/s800/face_smile_man2.png" alt="..." />
+                                src="https://3.bp.blogspot.com/-vPkUjyegSyI/WKFi__im_fI/AAAAAAABBrs/w2abUDRN8ZQSsMWSlm1fg-Y5yhovYaOKQCLcB/s800/face_smile_man2.png"
+                                alt="..." />
                             <h5 class="fw-bolder">배승혁</h5>
                             <div class="fst-italic text-muted"> SNS Crawlling </div>
                         </div>
@@ -138,7 +160,8 @@
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4"
-                                src="https://3.bp.blogspot.com/-As7Bl3jHRRU/WKFjA6EypgI/AAAAAAABBsI/XJ4w9lDupc8LngEYB1Dn7tfPWXvPiZXZwCLcB/s800/face_smile_woman4.png" alt="..." />
+                                src="https://3.bp.blogspot.com/-As7Bl3jHRRU/WKFjA6EypgI/AAAAAAABBsI/XJ4w9lDupc8LngEYB1Dn7tfPWXvPiZXZwCLcB/s800/face_smile_woman4.png"
+                                alt="..." />
                             <h5 class="fw-bolder">이가현</h5>
                             <div class="fst-italic text-muted"> 자료 분석 및 통계 처리 </div>
                         </div>
@@ -146,7 +169,8 @@
                     <div class="col mb-5 mb-5 mb-sm-0">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4"
-                                src="https://2.bp.blogspot.com/-wTnACm8RQWE/WKFjAjOt3BI/AAAAAAABBsE/kEpLST61swU6wKLd2vnbI7ixVGMx3562gCLcB/s800/face_smile_woman3.png" alt="..." />
+                                src="https://2.bp.blogspot.com/-wTnACm8RQWE/WKFjAjOt3BI/AAAAAAABBsE/kEpLST61swU6wKLd2vnbI7ixVGMx3562gCLcB/s800/face_smile_woman3.png"
+                                alt="..." />
                             <h5 class="fw-bolder">정유진</h5>
                             <div class="fst-italic text-muted"> 예매처 사이트 Crawlling </div>
                         </div>
@@ -154,7 +178,8 @@
                     <div class="col mb-5">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4"
-                                src="https://4.bp.blogspot.com/-YHphGIYu2xo/WKFi-1xVxhI/AAAAAAABBrU/FgmNjqIGb7Ix_BYlCsMAmFF0lsEQwdqBQCLcB/s800/face_angry_woman1.png" alt="..." />
+                                src="https://4.bp.blogspot.com/-YHphGIYu2xo/WKFi-1xVxhI/AAAAAAABBrU/FgmNjqIGb7Ix_BYlCsMAmFF0lsEQwdqBQCLcB/s800/face_angry_woman1.png"
+                                alt="..." />
                             <h5 class="fw-bolder">이유진</h5>
                             <div class="fst-italic text-muted"> 웹 서버/데이터베이스 구축 </div>
                         </div>

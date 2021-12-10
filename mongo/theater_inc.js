@@ -46,3 +46,5 @@ const the_incSchema = new Schema({
 })
 
 module.exports.theater_inc = mongoose.model('theater_inc', the_incSchema)
+
+// 공연장 트렌드 페이지 생성해서 넣기
