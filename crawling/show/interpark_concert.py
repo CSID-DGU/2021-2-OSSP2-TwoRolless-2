@@ -142,21 +142,13 @@ def crawling(url):
     # 캐스팅 목록 가져오기
     # 캐스팅이 존재 할 때만 가져오기
     casting=[]
-    
+
     if("캐스팅" in content_title):    
-        b=soup.find_all(class_='castingActor')
         c=soup.find_all(class_='castingName')
-
-
-        actor=[]
-        charac=[]
-
-        for i in b:
-            charac.append(i.text)
+        
         for i in c:
-            actor.append(i.text)
-        for c,a in zip(charac,actor):
-            casting.append(c+" : "+a)
+            casting.append(i.text)
+
         
     detail=soup.find_all(class_="contentDetail")
     
@@ -198,7 +190,7 @@ def crawling(url):
  
 
     mydb = my_client['crawling']
-    mycol = mydb['musical']
+    mycol = mydb['concert']
     x = mycol.insert_one(
             {
                 "제목":info_text[0],
