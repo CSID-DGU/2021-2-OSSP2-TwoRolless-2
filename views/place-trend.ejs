@@ -75,14 +75,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xxl-6">
                         <div class="text-center my-5">
-                            <h1 class="fw-bolder mb-3"> 국내 공연장 정보 </h1>
-                                <ul class="boardTab">
-                                    <li>
-                                        <a href="javascript:함수이름">
-                                            <span> #서울 </span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <h1 class="fw-bolder mb-3"> 공연장 트렌드 </h1>
                             <a class="btn btn-primary btn-lg" href="#scroll-target">검색</a>
                         </div>
                     </div>
@@ -95,7 +88,7 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-1 font-weight-bold", style = "text-align: center; font-size:xx-large;">
-                        공연장 목록
+                        공연장 트렌드
                     </h6>
                 </div>
                 <div class="card-body">
@@ -103,33 +96,12 @@
                         <table class="table table-bordered", style = "width: 85%; margin: auto;">
                             <thead>
                                 <tr style = "background-color:lightskyblue;">
-                                    <th style = "width: 25%; text-align: center; font-size:x-large;">공연장 이름</th>
-                                    <th style = "width: 10%; text-align: center; font-size:x-large;">도시</th>
-                                    <th style = "width: 45%; text-align: center; font-size:x-large;">주소</th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;">좌석 수</th>
+                                    <th style = "width: 25%; text-align: center; font-size:x-large;"> 1번 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 2번 </th>
+                                    <th style = "width: 45%; text-align: center; font-size:x-large;"> 3번 </th>
+                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 4번 </th>
                                 </tr>
                             </thead>
-                            <% for (var i in data) { %>
-                                <!-- <%var tmp = data[i]; %> -->
-                                <tbody>
-                                    <tr>
-                                        <td style = "text-align: center;">
-                                            <a href='/stat/place/<%= data[i]._id %>', style = "color:lightslategray; font-size: larger; text-decoration-line: none;">
-                                                <%= data[i].BUILDING_NAME %>
-                                            </a>
-                                        </td>
-                                        <td style = "text-align: center;">
-                                            <%= data[i].CITY %>
-                                        </td>
-                                        <td>
-                                            <%= data[i].ADDRESS %>
-                                        </td>
-                                        <td style = "text-align: center;">
-                                            <%= data[i].TOTAL_SEAT_NUM %>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <% } %>
                         </table>
                     </div>
                 </div>

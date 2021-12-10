@@ -26,3 +26,5 @@ const the_overSchema = new Schema({
 })
 
 module.exports.theater_over = mongoose.model('theater_over', the_overSchema)
+
+// change_rate는 빼고 지역별로 볼 수 있게

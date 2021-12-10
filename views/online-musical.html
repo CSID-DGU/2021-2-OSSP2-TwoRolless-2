@@ -27,10 +27,20 @@
                             <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
                             <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/stat/trend">공연 트렌드</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    공연 트렌드
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="/stat/show-trend">공연 트렌드</a></li>
+                                    <li><a class="dropdown-item" href="/stat/place-trend">공연장 트렌드</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item"><a class="nav-link" href="/stat/place">공연장 정보</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     공연 정보 (오프라인)
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -39,14 +49,17 @@
                                     <li><a class="dropdown-item" href="/show/concert">콘서트</a></li>
                                 </ul>
                             </li>
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                공연 정보 (온라인)
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
-                                <li><a class="dropdown-item" href="/online/play">연극</a></li>
-                                <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
-                            </ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    공연 정보 (온라인)
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
+                                    <li><a class="dropdown-item" href="/online/play">연극</a></li>
+                                    <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
