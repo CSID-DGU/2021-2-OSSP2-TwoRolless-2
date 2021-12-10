@@ -76,7 +76,9 @@
                     <div class="col-lg-8 col-xxl-6">
                         <div class="text-center my-5">
                             <h1 class="fw-bolder mb-3"> 공연장 트렌드 </h1>
-                            <a class="btn btn-primary btn-lg" href="#scroll-target">검색</a>
+                            <p class="lead fw-normal text-muted mb-4" style="font-size: x-large;">
+                                코로나 이후 방문율이 증가한 공연장 &lt;	top 15 &gt;	를 알아보자!
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +90,7 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-1 font-weight-bold", style = "text-align: center; font-size:xx-large;">
-                        공연장 트렌드
+                        공연장 트렌드 &lt;	top 15 &gt;
                     </h6>
                 </div>
                 <div class="card-body">
@@ -96,24 +98,59 @@
                         <table class="table table-bordered", style = "width: 85%; margin: auto;">
                             <thead>
                                 <tr style = "background-color:lightskyblue;">
-                                    <th style = "width: 25%; text-align: center; font-size:x-large;"> 1번 </th>
-                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 2번 </th>
-                                    <th style = "width: 45%; text-align: center; font-size:x-large;"> 3번 </th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 4번 </th>
+                                    <th rowspan='2' style = "text-align: center; font-size:large;"> Rank </th>
+                                    <th colspan='3' style = "text-align: center; font-size:xx-large;"> 공연장 </th>
+                                    <th colspan='3' style = "text-align: center; font-size:xx-large;"> 공연 </th>
+                                </tr>
+                                <tr style = "background-color:lightskyblue;">
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 도/시 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시/군/구 </th>
+                                    <th style = "width: 15%; text-align: center; font-size:x-large;"> 시설 이름 </th>
+                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 뮤지컬 </th>
+                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 콘서트 </th>
+                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 연극 </th>
                                 </tr>
                             </thead>
+                            <% for (var i in data) { %>
+                                <!-- <%var tmp = data[i]; %> -->
+                                <tbody>
+                                    <tr>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].rank %>
+                                        </td>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].ctprvn_nm %>
+                                        </td>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].signgu_nm %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].fclty_nm %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].musical %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].concert %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].play %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
                         </table>
                     </div>
                 </div>
 
             </div>
         </section>
-        <section class="py-5 bg-light">
+        <!-- <section class="py-5 bg-light">
             <div class="container px-5 my-5">
                 <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
                 <a class="btn btn-lg btn-primary" href="#!">Contact us</a>
             </div>
-        </section>
+        </section> -->
     </main>
     <!-- Footer-->
     <footer class="bg-dark py-4 mt-auto">

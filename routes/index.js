@@ -3,6 +3,7 @@ const router = express.Router()
 
 const sns = require('../mongo/sns')
 
+
 router.use(express.static('views'))
 
 router.get('/', (req, res, next) => {

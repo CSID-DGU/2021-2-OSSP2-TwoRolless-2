@@ -52,18 +52,18 @@ router.get("/place/:id", (req, res) => {
 
 router.get('/place-trend', async (req, res) => {
 
-    const theater_ov = await theater_over.theater_over.find({})
     const theater_ic = await theater_inc.theater_inc.find({})
 
+    const theater_ov = await theater_over.theater_over.find({})
+
     res.render('place-trend.ejs', {
-        data1: theater_ov,
-        data2: theater_ic
+        data: theater_ic
     })
 
 })
 
 
-router.get('/show-trend', (req, res) => {
+router.get('/show-trend', async (req, res) => {
 
     try {
         res.render('show-trend.html')
