@@ -78,8 +78,6 @@
                             <h1 class="fw-bolder mb-3"> 공연장 트렌드 </h1>
                             <p class="lead fw-normal text-muted mb-4" style="font-size: x-large;">
                                 공연장 트렌드 페이지 설명
-                                <br><br>
-                                <a class="btn btn-primary btn-lg" href="/stat/place-trend-all"> 코로나 이후 방문율이 증가한 공연장 더 알아보기 </a>
                             </p>
                         </div>
                     </div>
@@ -100,42 +98,49 @@
                         <table class="table table-bordered", style = "width: 85%; margin: auto;">
                             <thead>
                                 <tr style = "background-color:lightblue">
-                                    <th rowspan='2' style = "text-align: center; font-size:large;"> Rank </th>
-                                    <th colspan='3' style = "text-align: center; font-size:xx-large;"> 공연장 </th>
-                                    <th colspan='3' style = "text-align: center; font-size:xx-large;"> 공연 </th>
+                                    <th colspan='2' style = "text-align: center; font-size:xx-large;"> 서울특별시 </th>
+                                    <th colspan='2' style = "text-align: center; font-size:xx-large;"> 경기도 </th>
+                                    <th colspan='2' style = "text-align: center; font-size:xx-large;"> 부산광역시 </th>
+                                    <th colspan='2' style = "text-align: center; font-size:xx-large;"> 그 외 지역 </th>
+
                                 </tr>
                                 <tr style = "background-color:lightblue">
-                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 도/시 </th>
                                     <th style = "width: 10%; text-align: center; font-size:x-large;"> 시/군/구 </th>
-                                    <th style = "width: 15%; text-align: center; font-size:x-large;"> 시설 이름 </th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 뮤지컬 </th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 콘서트 </th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;"> 연극 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시설 이름 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시/군/구 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시설 이름 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시/군/구 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시설 이름 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시/군/구 </th>
+                                    <th style = "width: 10%; text-align: center; font-size:x-large;"> 시설 이름 </th>
                                 </tr>
                             </thead>
                             <% for (var i in data) { %>
                                 <tbody>
                                     <tr>
                                         <td style = "text-align: center;">
-                                            <%= data[i].rank %>
+                                            <%= data[i].signgu_nm %>
                                         </td>
                                         <td style = "text-align: center;">
-                                            <%= data[i].ctprvn_nm %>
+                                            <%= data[i].fclty_nm %>
                                         </td>
                                         <td style = "text-align: center;">
                                             <%= data[i].signgu_nm %>
                                         </td>
-                                        <td>
+                                        <td style = "text-align: center;">
                                             <%= data[i].fclty_nm %>
                                         </td>
-                                        <td>
-                                            <%= data[i].musical %>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].signgu_nm %>
                                         </td>
-                                        <td>
-                                            <%= data[i].concert %>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].fclty_nm %>
                                         </td>
-                                        <td>
-                                            <%= data[i].play %>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].signgu_nm %>
+                                        </td>
+                                        <td style = "text-align: center;">
+                                            <%= data[i].fclty_nm %>
                                         </td>
                                     </tr>
                                 </tbody>
