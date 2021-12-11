@@ -198,7 +198,7 @@ def crawling(url):
  
 
     mydb = my_client['crawling']
-    mycol = mydb['musical']
+    mycol = mydb['play']
     x = mycol.insert_one(
             {
                 "제목":info_text[0],

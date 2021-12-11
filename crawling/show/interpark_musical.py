@@ -269,7 +269,7 @@ if __name__ == '__main__':
     # if os.path.isfile(file):
     #      os.remove(file)
 
-    for i in range(10):
+    for i in range(len(new_url)):
         try:
             print(i,"번째 크롤링")
             crawling(new_url[i])
