@@ -8,27 +8,27 @@ const online_play = require('../mongo/online/online_play')
 router.use(express.static('views'))
 
 router.get('/concert', (req, res, next) => {
-
-    try {
-        res.render('online-concert.html', {
-            concert: online_concert
-        })
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    
+    online_concert.on_con.find(function (err, concert) {
+        try {
+            res.render('online-concert.html', { data: concert })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
+        .sort({ "DATE": -1 })
 })
 
 router.get('/musical', (req, res, next) => {
-
-    try {
-        res.render('online-musical.html', {
-            musical: online_musical
-        })
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    
+    online_musical.on_mus.find(function (err, musical) {
+        try {
+            res.render('online-musical.html', { data: musical })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
+    .sort({ "DATE": -1 })
 })
 
 router.get('/play', (req, res, next) => {
@@ -40,6 +40,7 @@ router.get('/play', (req, res, next) => {
             res.render(Error)
         }
     })
+    .sort({ "DATE": -1 })
 })
 
 
