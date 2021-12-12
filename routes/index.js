@@ -2,9 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 const sns = require('../mongo/sns')
-const musical= require('../mongo/musical')
-const play= require('../mongo/play')
-const concert= require('../mongo/concert')
 
 router.use(express.static('views'))
 

@@ -43,4 +43,4 @@ const off_musical = new Schema({
 
 })
 
-module.exports.on_mus = mongoose.model('off_mus', off_musical)
+module.exports.off_mus = mongoose.model('off_mus', off_musical)
