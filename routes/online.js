@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const online_concert = require('../mongo/online_concert')
-const online_musical = require('../mongo/online_musical')
-const online_play = require('../mongo/online_play')
+const online_concert = require('../mongo/online/online_concert')
+const online_musical = require('../mongo/online/online_musical')
+const online_play = require('../mongo/online/online_play')
 
 router.use(express.static('views'))
 
