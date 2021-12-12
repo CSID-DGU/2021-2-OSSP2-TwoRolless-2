@@ -25,7 +25,6 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
                             <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
@@ -78,7 +77,11 @@
                                     <p class="card-text mb-0"> 
                                         판매 상태: <%= data[i].STATE %> <br>
                                         공연 기간: <%= data[i].DATE %> <br>
-                                        상세 정보: <%= data[i].DETAILS %><br>
+                                        출연 배우: <%= data[i].ACTOR %><br>
+                                        관람 연령: <%= data[i].AGE %><br>
+                                        상영 시간: <%= data[i].RUN_TIME %><br>
+
+
                                         <br> <br>
                                         클릭하시면 예매 사이트로 이동합니다!
                                         
