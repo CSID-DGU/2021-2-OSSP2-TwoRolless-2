@@ -53,7 +53,7 @@ for place, title in zip(places, titles):
     tname = title.find('a').text # 제목 text
     url = title.find('a')['href'] #url
     
-    if('프로그램북' in tname or 'md' in tname):
+    if('프로그램북' in tname or 'md' in tname or 'ost' in tname or 'OST' in tname):
         if('패키지' not in tname):
             continue # 제외하는 것들
 
