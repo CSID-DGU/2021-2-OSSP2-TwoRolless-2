@@ -53,7 +53,7 @@ for place, title in zip(places, titles):
     tname = title.find('a').text # 제목 text
     url = title.find('a')['href'] #url
     
-    if('프로그램북' in tname or 'md' in tname):
+    if('프로그램북' in tname or 'md' in tname or 'ost' in tname or 'OST' in tname):
         if('패키지' not in tname):
             continue # 제외하는 것들
 
@@ -190,21 +190,21 @@ def crawling(url):
  
 
     mydb = my_client['crawling']
-    mycol = mydb['concert']
+    mycol = mydb['off_cons']
     x = mycol.insert_one(
             {
-                "제목":info_text[0],
-                "장소":info_text[1],
-                "공연기간":info_text[2],
-                "공연시간":info_text[3],
-                "관람연령":info_text[4],
-                "공연 포스터": p_url,
-                "가격": money,
-                "캐스팅": casting,
-                "공연시간 정보": time,
-                "공지사항":notice,
-                "할인정보":discount,
-                "공연상세/캐스팅 일정":schedule
+                "title":info_text[0],
+                "place":info_text[1],
+                "period":info_text[2],
+                "time":info_text[3],
+                "age":info_text[4],
+                "poster": p_url,
+                "price": money,
+                "casting": casting,
+                "timeinfo": time,
+                "notice":notice,
+                "discount":discount,
+                "schedule":schedule
 
             }
         )
