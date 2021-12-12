@@ -75,15 +75,24 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xxl-6">
                         <div class="text-center my-5">
-                            <h1 class="fw-bolder mb-3"> 국내 공연장 정보 </h1>
-                                <ul class="boardTab">
-                                    <li>
-                                        <a href="javascript:함수이름">
-                                            <span> #서울 </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            <a class="btn btn-primary btn-lg" href="#scroll-target">검색</a>
+                            <h1 class="fw-bolder mb-3">
+                                국내 공연장 정보
+                            </h1>
+                            <h4>
+                                지역별로 보기 클릭!
+                            </h4>
+                            <li>
+                                <br><br>
+                                <a class="btn btn-primary btn-lg" href="">서울</a>
+                                <a class="btn btn-primary btn-lg" href="">대전</a>
+                                <a class="btn btn-primary btn-lg" href="">대구</a>
+                                <a class="btn btn-primary btn-lg" href="">부산</a>
+                                <br><br>
+                                <a class="btn btn-primary btn-lg" href="">경기도</a>
+                                <a class="btn btn-primary btn-lg" href="">충청도</a>
+                                <a class="btn btn-primary btn-lg" href="">전라도</a>
+                                <a class="btn btn-primary btn-lg" href="">경상도</a>
+                            </li>
                         </div>
                     </div>
                 </div>
@@ -94,37 +103,38 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-1 font-weight-bold", style = "text-align: center; font-size:xx-large;">
+                    <h6 class="m-1 font-weight-bold" , style="text-align: center; font-size:xx-large;">
                         공연장 목록
                     </h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered", style = "width: 85%; margin: auto;">
+                        <table class="table table-bordered" , style="width: 85%; margin: auto;">
                             <thead>
-                                <tr style = "background-color:lightblue;">
-                                    <th style = "width: 25%; text-align: center; font-size:x-large;">공연장 이름</th>
-                                    <th style = "width: 10%; text-align: center; font-size:x-large;">도시</th>
-                                    <th style = "width: 45%; text-align: center; font-size:x-large;">주소</th>
-                                    <th style = "width: 20%; text-align: center; font-size:x-large;">좌석 수</th>
+                                <tr style="background-color:lightblue;">
+                                    <th style="width: 25%; text-align: center; font-size:x-large;">공연장 이름</th>
+                                    <th style="width: 10%; text-align: center; font-size:x-large;">도시</th>
+                                    <th style="width: 45%; text-align: center; font-size:x-large;">주소</th>
+                                    <th style="width: 20%; text-align: center; font-size:x-large;">좌석 수</th>
                                 </tr>
                             </thead>
                             <% for (var i in data) { %>
                                 <!-- <%var tmp = data[i]; %> -->
                                 <tbody>
                                     <tr>
-                                        <td style = "text-align: center;">
-                                            <a href='/stat/place/<%= data[i]._id %>', style = "color:lightslategray; font-size: larger; text-decoration-line: none;">
+                                        <td style="text-align: center;">
+                                            <a href='/stat/place/<%= data[i]._id %>' ,
+                                                style="color:lightslategray; font-size: larger; text-decoration-line: none;">
                                                 <%= data[i].BUILDING_NAME %>
                                             </a>
                                         </td>
-                                        <td style = "text-align: center;">
+                                        <td style="text-align: center;">
                                             <%= data[i].CITY %>
                                         </td>
                                         <td>
                                             <%= data[i].ADDRESS %>
                                         </td>
-                                        <td style = "text-align: center;">
+                                        <td style="text-align: center;">
                                             <%= data[i].TOTAL_SEAT_NUM %>
                                         </td>
                                     </tr>
