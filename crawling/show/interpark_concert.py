@@ -189,7 +189,7 @@ def crawling(url):
         money[seat[i]]=price[i]
  
 
-    mydb = my_client['crawling']
+    mydb = my_client['TwoRolless']
     mycol = mydb['off_cons']
     x = mycol.insert_one(
             {
@@ -252,9 +252,8 @@ my_client = pymongo.MongoClient(conn_str)
 
 if __name__ == '__main__':
     mydb = my_client['TwoRolless']
-    mycol = mydb['concert']
-    #mydb.mycol.remove({})
-    #mycol.remove({})
+    mycol = mydb['off_cons']
+    mycol.remove({})
 
     # 파일 존재하면 삭제(초기화)
     # file="C:/Users/ellka/Downloads/interpark_musical.txt"

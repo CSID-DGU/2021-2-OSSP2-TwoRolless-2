@@ -197,8 +197,8 @@ def crawling(url):
         money[seat[i]]=price[i]
  
 
-    mydb = my_client['crawling']
-    mycol = mydb['musical']
+    mydb = my_client['TwoRolless']
+    mycol = mydb['off_mus']
     x = mycol.insert_one(
             {
                 "title":info_text[0],
@@ -262,7 +262,7 @@ if __name__ == '__main__':
     mydb = my_client['TwoRolless']
     mycol = mydb['off_mus']
     #mydb.mycol.remove({})
-    #mycol.remove({})
+    mycol.remove({})
 
     # 파일 존재하면 삭제(초기화)
     # file="C:/Users/ellka/Downloads/interpark_musical.txt"

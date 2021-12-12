@@ -198,7 +198,7 @@ def crawling(url):
  
 
     mydb = my_client['TwoRolless']
-    mycol = mydb['play']
+    mycol = mydb['off_plies']
     x = mycol.insert_one(
             {
                 "title":info_text[0],
@@ -259,10 +259,10 @@ conn_str = "mongodb+srv://Yujin:tworolless00@tworolless.cwje0.mongodb.net/myFirs
 my_client = pymongo.MongoClient(conn_str)
 
 if __name__ == '__main__':
-    mydb = my_client['crawling']
+    mydb = my_client['TwoRolless']
     mycol = mydb['off_plies']
     #mydb.mycol.remove({})
-    #mycol.remove({})
+    mycol.remove({})
 
     # 파일 존재하면 삭제(초기화)
     # file="C:/Users/ellka/Downloads/interpark_musical.txt"
