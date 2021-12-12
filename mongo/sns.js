@@ -17,6 +17,10 @@ const snsSchema = new Schema({
 
     img: {
         type: String,
+    },
+
+    url: {
+        type: String,
     }
 })
 
