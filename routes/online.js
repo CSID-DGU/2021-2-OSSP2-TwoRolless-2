@@ -33,14 +33,13 @@ router.get('/musical', (req, res, next) => {
 
 router.get('/play', (req, res, next) => {
     
-    try {
-        res.render('online-play.html', {
-            play: online_play
-        })
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    online_play.on_ply.find(function (err, play) {
+        try {
+            res.render('online-play.html', { data: play })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
 })
 
 
