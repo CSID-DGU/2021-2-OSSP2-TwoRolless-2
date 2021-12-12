@@ -197,7 +197,7 @@ def crawling(url):
         money[seat[i]]=price[i]
  
 
-    mydb = my_client['crawling']
+    mydb = my_client['TwoRolless']
     mycol = mydb['play']
     x = mycol.insert_one(
             {

@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const sns = require('../mongo/sns')
-const musical= require('../mongo/crawling')
+const musical= require('../mongo/musical')
+const play= require('../mongo/play')
+const concert= require('../mongo/concert')
 
 router.use(express.static('views'))
 
@@ -46,7 +48,7 @@ router.get('/faq', (req, res, next) => {
 
 router.get('/show-musical', (req, res, next) => {
     try {
-        res.render('show-musical.html')
+        res.render('show-musical.html',{data: musical})
     } catch (err) {
         console.error(err)
         next(err)
@@ -55,7 +57,7 @@ router.get('/show-musical', (req, res, next) => {
 
 router.get('/show-play', (req, res, next) => {
     try {
-        res.render('show-play.html')
+        res.render('show-play.html',{data: play})
     } catch (err) {
         console.error(err)
         next(err)
@@ -64,7 +66,7 @@ router.get('/show-play', (req, res, next) => {
 
 router.get('/show-concert', (req, res, next) => {
     try {
-        res.render('show-concert.html')
+        res.render('show-concert.html',{data: concert})
     } catch (err) {
         console.error(err)
         next(err)

@@ -251,7 +251,7 @@ conn_str = "mongodb+srv://Yujin:tworolless00@tworolless.cwje0.mongodb.net/myFirs
 my_client = pymongo.MongoClient(conn_str)
 
 if __name__ == '__main__':
-    mydb = my_client['crawling']
+    mydb = my_client['TwoRolless']
     mycol = mydb['concert']
     #mydb.mycol.remove({})
     #mycol.remove({})
