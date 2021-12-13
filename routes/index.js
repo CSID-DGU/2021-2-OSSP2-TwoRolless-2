@@ -3,10 +3,6 @@ const router = express.Router()
 
 const sns = require('../mongo/sns')
 
-const musical=require('../mongo/off_mus')
-const play=require('../mongo/off_plies')
-const concert=require('../mongo/off_cons')
-
 
 router.use(express.static('views'))
 
@@ -37,36 +33,6 @@ router.get('/faq', (req, res, next) => {
     }
 })
 
-
-router.get('/show-musical', (req, res,next) => {
-    musical.musical.find(function (err, musical) {
-        try {
-            res.render('show-musical.html', {data: musical})
-        } catch(err) {
-            res.render(err)
-        }
-    })
-})
-
-router.get('/show-play', (req, res,next) => {
-    play.play.find(function (err, play) {
-        try {
-            res.render('show-play.html', {data: play})
-        } catch(err) {
-            res.render(err)
-        }
-    })
-})
-
-router.get('/show-concert', (req, res,next) => {
-    concert.concert.find(function (err, concert) {
-        try {
-            res.render('show-play.html', {data: concert})
-        } catch(err) {
-            res.render(err)
-        }
-    })
-})
 
 router.get('/SNS', (req, res) => {
     sns.sns.find(function (err, sns) {
