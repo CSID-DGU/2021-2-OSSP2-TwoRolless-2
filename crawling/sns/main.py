@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 
 def crawllTwit(snsname, findtag):
     account = snsname
-    tweets = api.user_timeline(screen_name=account, count=100, include_rts=True, exclude_replies=False, tweet_mode='extended')
+    tweets = api.user_timeline(screen_name=account, count=100, include_rts=False, exclude_replies=True, tweet_mode='extended')
 
     snsList = []
     snsTime = []
