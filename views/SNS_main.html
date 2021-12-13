@@ -34,6 +34,7 @@
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
+        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
                 <a class="navbar-brand" href="/">TWOROLLESS</a>
@@ -45,9 +46,17 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
                         <li class="nav-item"><a class="nav-link" href="/SNS">SNS 모아보기</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/stat/trend">공연 트렌드</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                공연 트렌드
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/stat/show-trend">공연 트렌드</a></li>
+                                <li><a class="dropdown-item" href="/stat/place-trend">공연장 트렌드</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="/stat/place">공연장 정보</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
@@ -60,15 +69,17 @@
                                 <li><a class="dropdown-item" href="/show/concert">콘서트</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            공연 정보 (온라인)
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                            <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
-                            <li><a class="dropdown-item" href="/online/play">연극</a></li>
-                            <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
-                        </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                공연 정보 (온라인)
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/online/musical">뮤지컬</a></li>
+                                <li><a class="dropdown-item" href="/online/play">연극</a></li>
+                                <li><a class="dropdown-item" href="/online/concert">콘서트</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -137,7 +148,7 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div>
-                                    <center><img class="img-fluid rounded mb-5 mb-lg-0" src=sns_html/goldmunt.jpg
+                                    <center><img class="img-fluid rounded mb-5 mb-lg-0" src=sns_html/vampireother.jpg
                                             rel="stylesheet" style="max-width:100%; height:auto;" /></center>
                                 </div>
                                 <h2 class="fs-4 fw-bold"><a href="/vmpoth">뱀파이어 아더</a></h2>
@@ -195,7 +206,7 @@
                                     <center><img class="img-fluid rounded mb-5 mb-lg-0" src=sns_html/gentlemansguide.jpg
                                             rel="stylesheet" style="max-width:100%; height:auto;" /></center>
                                 </div>
-                                <h2 class="fs-4 fw-bold"><a href="/kingsman">젠트맨스가이드</a></h2>
+                                <h2 class="fs-4 fw-bold"><a href="/kingsman">젠틀맨스가이드</a></h2>
                             </div>
                         </div>
                     </div>
