@@ -192,9 +192,10 @@ def crawling(url):
     driver.close()
 
     #가격
-    money=dict()
+    money=[]
+
     for i in range(len(seat)):
-        money[seat[i]]=price[i]
+        money.append(seat[i]+" : "+price[i])
  
 
     mydb = my_client['TwoRolless']
@@ -217,43 +218,10 @@ def crawling(url):
             }
         )
 
-        
     
-    # json 형태로 데이터 만들기
-    
-#     file=OrderedDict()
-
-#    #상세정보
-#     for i in range(len(info_text)):
-#         file[label[i]]=info_text[i]
-    
-#     file['공연 포스터']=p_url
-    
-#     file["가격"]=money
-#     file["캐스팅"]=casting  # key와 value값을 구분을.....안해놨는데 해야되면 바꿔야함
-
-
-#     #공연시간
-#     file["공연시간 정보"]=time
-#     #공지사항
-#     file['공지사항']=notice
-#     #할인정보
-#     file['할인정보']=discount
-#     #공연상세/캐스팅 일정
-#     file['공연상세/캐스팅 일정']=schedule
-    
-    #print(json.dumps(file,ensure_ascii=False,indent='\t'))
-    
-    # json 형식으로 저장하는 txt파일 생성
-    # file_path='C:/Users/ellka/Downloads/interpark_musical.txt'
-    
-    # with open(file_path,'a',encoding='utf-8') as f:
-    #     json.dump(file,f,ensure_ascii=False,indent='\t')
         
     driver.quit()
 
-
-#my_client = MongoClient("mongodb://localhost:27017/")
 
 conn_str = "mongodb+srv://Yujin:tworolless00@tworolless.cwje0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 my_client = pymongo.MongoClient(conn_str)
@@ -264,10 +232,7 @@ if __name__ == '__main__':
     #mydb.mycol.remove({})
     mycol.remove({})
 
-    # 파일 존재하면 삭제(초기화)
-    # file="C:/Users/ellka/Downloads/interpark_musical.txt"
-    # if os.path.isfile(file):
-    #      os.remove(file)
+
 
     for i in range(len(new_url)):
         try:
@@ -278,11 +243,4 @@ if __name__ == '__main__':
 
 
 
-
-# for i in range(len(new_url)):
-#     try:
-#         print(i,"번째 크롤링")
-#         crawling(new_url[i])
-#     except Exception as e:
-#         print(i," 번에서 오류:",e," ",new_url[i])
 
