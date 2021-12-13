@@ -39,7 +39,7 @@ const off_play = new Schema({
     },
     schedule: {
         type: Array
-    }
+    },
 })
 
 module.exports.off_ply = mongoose.model('off_ply', off_play)

@@ -39,7 +39,7 @@ const off_concert = new Schema({
     },
     schedule: {
         type: Array
-    }
+    },
 })
 
 module.exports.off_con = mongoose.model('off_con', off_concert)
