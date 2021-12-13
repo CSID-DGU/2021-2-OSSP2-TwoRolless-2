@@ -68,115 +68,128 @@
             </div>
         </nav>
         <!-- Page Content-->
-        <section class="py-5">
-            <div class="container px-5 my-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center mb-5">
-                            <h1 class="fw-bolder">
-                                
-                                    <%= data?.title %>
+        <header class="py-5">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xxl-6">
+                        <div class="text-center my-5">
+                            <h1 class="fw-bolder mb-3">
+                                <%= data?.title %>
                                     <br><br>
-                                
                             </h1>
-
-                            <img class="card-img-top" src=<%= data?.poster %> />
-                            <br><br><br>
-
-                            
-                            <table class="table table-bordered", style = "width: 200%; text-align: center; margin-left: auto; margin-right: auto;">
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px; background-color:rgba(243, 182, 14, 0.966);">장소</th>
-                                    <td><%= data?.place %></td>
-                                </tr>
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px; background-color:rgba(243, 182, 14, 0.966);">공연기간</th>
-                                    <td><%= data?.period %></td>
-                                </tr>
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">공연시간</th>
-                                    <td><%= data?.time %></td>
-                                </tr>
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">관람연령</th>
-                                    <td><%= data?.age %></td>
-                                </tr>
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">가격</th>
-                                    <td>   
-                                        <% for (var i in data?.price) { %>
-                                            <%= data?.price[i] %>       
-                                            <br>
-                                        <% } %>                                                                   
-                                    </td>
-                                </tr>
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">캐스팅</th>
-                                    <td>   
-                                        <% for (var i in data?.casting) { %>
-                                            <%= data?.casting[i] %>       
-                                            <br>
-                                        <% } %>                                                                   
-                                    </td>
-                                </tr>
-
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">공연시간정보</th>
-                                    <td>   
-                                        <% for (var i in data?.timeinfo) { %>
-                                            <%= data?.timeinfo[i] %>       
-                                            <br>
-                                        <% } %>                                                                   
-                                    </td>
-                                </tr>
-
-                                <tr style = font-size:x-large;">
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">공지사항</th>
-                                    <td>   
-                                        <% for (var i in data?.notice) { %>
-                                            <% if(data?.notice[i].includes("jpg")){    %>
-                                                <img class="card-img-top" src=<%= data?.notice[i] %> />       
-                                                <br>
-                                            <% } else {%>
-                                                <%= data?.notice[i] %>
-                                            <%}
-                                        } %>                                                                   
-                                    </td>
-                                </tr>
-
-                                <tr style = font-size:x-large;>
-                                    <th style = "width:200px; background-color:rgba(243, 182, 14, 0.966);">할인정보</th>
-                                    <td>   
-                                        <% for (var i in data?.discount) { %>
-                                            <% if(data?.discount[i].includes("jpg")){    %>
-                                                <img class="card-img-top" src=<%= data?.discount[i] %> />       
-                                                <br>
-                                            <% } else {%>
-                                                <%= data?.discount[i] %>
-                                            <%}
-                                        } %>                                                                   
-                                    </td>
-                                </tr>
-                                <tr style = font-size:x-large;>
-                                    <th style = "width:200px;background-color:rgba(243, 182, 14, 0.966);">공연상세/<br>캐스팅일정</th>
-                                    <td>   
-                                        <% for (var i in data?.schedule) { %>
-                                            <% if(data?.schedule[i].includes("jpg")){    %>
-                                                <img class="card-img-top" src=<%= data?.schedule[i] %> />       
-                                                <br>
-                                            <% } else {%>
-                                                <%= data?.schedule[i] %>
-                                            <%}
-                                        } %>                                                                   
-                                    </td>
-                                </tr>
-
-                            </table>
-                        
+                            <p class="lead fw-normal text-muted mb-4" style="font-size: large;">
+                                <img class="card-img-top" src="<%=data?.poster %>" width="200px;" height="auto;" />
+                                <br>
+                            </p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </header>
 
+        <section class="py-2">
+            <!-- DataTales Example -->
+            <div class="card mb-4">
+                <div class="card-header py-3">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" ,
+                                style="text-align: center; margin-left: auto; margin-right: auto;">
+                                <tr style="font-size:large;">
+                                    <th style="width:15%; background-color:rgba(243, 182, 14, 0.966);">장소</th>
+                                    <td>
+                                        <%= data?.place %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">공연기간</th>
+                                    <td>
+                                        <%= data?.period %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">공연시간</th>
+                                    <td>
+                                        <%= data?.time %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">관람연령</th>
+                                    <td>
+                                        <%= data?.age %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">가격</th>
+                                    <td>
+                                        <% for (var i in data?.price) { %>
+                                            <%= data?.price[i] %>
+                                                <br>
+                                                <% } %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">캐스팅</th>
+                                    <td>
+                                        <% for (var i in data?.casting) { %>
+                                            <%= data?.casting[i] %>
+                                                <br>
+                                                <% } %>
+                                    </td>
+                                </tr>
+
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">공연시간정보</th>
+                                    <td>
+                                        <% for (var i in data?.timeinfo) { %>
+                                            <%= data?.timeinfo[i] %>
+                                                <br>
+                                                <% } %>
+                                    </td>
+                                </tr>
+
+                                <tr style=font-size:large;">
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">공지사항</th>
+                                    <td>
+                                        <% for (var i in data?.notice) { %>
+                                            <% if(data?.notice[i].includes("jpg")){ %>
+                                                <img class="card-img-top" src=<%=data?.notice[i] %> />
+                                                <br>
+                                                <% } else {%>
+                                                    <%= data?.notice[i] %>
+                                                        <%} } %>
+                                    </td>
+                                </tr>
+
+                                <tr style=font-size:large;>
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">할인정보</th>
+                                    <td>
+                                        <% for (var i in data?.discount) { %>
+                                            <% if(data?.discount[i].includes("jpg")){ %>
+                                                <img class="card-img-top" src=<%=data?.discount[i] %> />
+                                                <br>
+                                                <% } else {%>
+                                                    <%= data?.discount[i] %>
+                                                        <%} } %>
+                                    </td>
+                                </tr>
+                                <tr style=font-size:large;>
+                                    <th style="background-color:rgba(243, 182, 14, 0.966);">공연상세/<br>캐스팅일정
+                                    </th>
+                                    <td>
+                                        <% for (var i in data?.schedule) { %>
+                                            <% if(data?.schedule[i].includes("jpg")){ %>
+                                                <img class="card-img-top" src=<%=data?.schedule[i] %> />
+                                                <br>
+                                                <% } else {%>
+                                                    <%= data?.schedule[i] %>
+                                                        <%} } %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
