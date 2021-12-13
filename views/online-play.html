@@ -71,21 +71,21 @@
                         <% for (var i in data) { %>
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src=<%= data[i].IMG_LINK %> />
+                                <img class="card-img-top" src="<%= data[i].IMG_LINK %>" />
                                 <div class="card-body p-4">
-                                    <a class="text-decoration-none link-dark stretched-link" href="<%= data[i].HREF %>"><div class="h5 card-title mb-3"><%= data[i].NAME %></div></a>
+                                    <a class="text-decoration-none link-dark stretched-link" href="<%= data[i].HREF %>">
+                                        <div class="h5 card-title mb-3">
+                                            <%= data[i].NAME %>
+                                        </div>
+                                    </a>
                                     <p class="card-text mb-0"> 
                                         판매 상태: <%= data[i].STATE %> <br>
                                         공연 기간: <%= data[i].DATE %> <br>
-                                        출연 배우: <%= data[i].ACTOR %><br>
-                                        관람 연령: <%= data[i].AGE %><br>
-                                        상영 시간: <%= data[i].RUN_TIME %><br>
-
-
+                                        출연 배우: <%= data[i].ACTOR %> <br>
+                                        관람 연령: <%= data[i].AGE %> <br>
+                                        상영 시간: <%= data[i].RUN_TIME %> <br>
                                         <br> <br>
                                         클릭하시면 예매 사이트로 이동합니다!
-                                        
-
                                     </p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
