@@ -1,7 +1,3 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import tweepy
 import traceback
 import time
@@ -21,18 +17,29 @@ api = tweepy.API(auth)
 
 def crawllTwit(snsname, findtag):
     account = snsname
-    tweets = api.user_timeline(screen_name=account, count=100, include_rts=True, exclude_replies=False, tweet_mode='extended')
+    tweets = api.user_timeline(screen_name=account, count=100, include_rts=False, exclude_replies=True, tweet_mode='extended')
 
     snsList = []
     snsTime = []
+    url = []
     pic = []
 
     i = 0
     for tweet in tweets:
         flag = tweet.full_text.find(findtag)
         if flag >= 0:
-            snsList.append(tweet.full_text)
+            ttp = tweet.full_text.split("https://")
+            gong = ""
+            count = 0
+            for slist in ttp:
+                if count == (len(ttp) - 1):
+                    break
+                gong = gong + slist
+                count += 1
+            snsList.append(gong)
             snsTime.append(tweet.created_at)
+            tmp = f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
+            url.append(tmp)
             i += 1
             media = tweet.entities.get('media', [])
             if (len(media) > 0):
@@ -49,8 +56,8 @@ def crawllTwit(snsname, findtag):
         snsList[j] = snsList[j].replace('▶️', ' ⇒ ')
         j += 1
 
-    mydb = my_client['test']
-    mycol = mydb['tweetSNS']
+    mydb = my_client['TwoRolless']
+    mycol = mydb['sns']
 
     for k in range(0, len(snsList)):
         if k == 15:
@@ -60,56 +67,38 @@ def crawllTwit(snsname, findtag):
                 "tag": findtag,
                 "time": snsTime[k],
                 "text": snsList[k],
-                "img": pic[k]
+                "img": pic[k],
+                "url": url[k]
             }
         )
 
-my_client = MongoClient("mongodb://localhost:27017/")
 
-# Press the green button in the gutter to run the script.
+conn_str = ""
+my_client = pymongo.MongoClient(conn_str)
+
 if __name__ == '__main__':
     while True:
         print("cycles start")
-        mydb = my_client['test']
-        mycol = mydb['tweetSNS']
+        mydb = my_client['TwoRolless']
+        mycol = mydb['sns']
         mycol.remove({})
-        crawllTwit("@M_dogcat21", "개와 고양이의 시간")
-        crawllTwit("@Trace_U", "트레이스유")
-        crawllTwit("@T2N_Media", "분장실")
-        crawllTwit("@m_bkaramazov", "브라더스까라마조프")
-        crawllTwit("@MJStarfish", "v에버애프터")
-        crawllTwit("@kontentz", "엔딩노트")
+        crawllTwit("@m_thelastman", "더라스트맨")
+        crawllTwit("@Musical_NarGold", "나르치스와_골드문트")
         crawllTwit("@rndworks", "더데빌")
-        crawllTwit("@rndworks", "카포네트릴로지")
-        crawllTwit("@HONGcompany", "더모먼트")
-        crawllTwit("@HONGcompany", "미인")
-        crawllTwit("@companyrang", "풍월주")
-        crawllTwit("@parkcompany1", "이토록보통의")
-        crawllTwit("@parkcompany1", "리어왕")
-        crawllTwit("@i_seensee", "빌리 엘리어트")
-        crawllTwit("@page1company", "곤투모로우")
-        crawllTwit("@od_musical", "지킬앤하이드")
-        crawllTwit("@shownote", "젠틀맨스가이드")
-        crawllTwit("@shownote", "헤드윅")
-        crawllTwit("@mpncompany", "타락천사")
-        crawllTwit("@mpncompany", "스핏파이어그릴")
-        crawllTwit("@HJCULTURE", "어린왕자")
-        crawllTwit("@thebestplays", "렁스")
-        crawllTwit("@thebestplays", "마우스피스")
-        crawllTwit("@ninestory9", "아가사")
         crawllTwit("@ninestory9", "엘리펀트송")
-        crawllTwit("@czac2021", "멸화군")
-        crawllTwit("@Insight_Since96", "보도지침")
+        crawllTwit("@companyrang", "쿠로이저택엔누가살고있을까")
+        crawllTwit("@companyrang", "난쟁이들")
+        crawllTwit("@page1company", "곤투모로우")
+        crawllTwit("@HONGcompany", "더모먼트")
+        crawllTwit("@orchardmusical", "칠칠")
+        crawllTwit("@livecorp2011", "팬레터")
+        crawllTwit("@shownote", "젠틀맨스가이드")
+        crawllTwit("@od_musical", "지킬앤하이드")
+        crawllTwit("@kontentz", "엔딩노트")
+        crawllTwit("@i_seensee", "빌리")
+        crawllTwit("@doublek_ent", "은하철도의")
         crawllTwit("@Insight_Since96", "뱀파이어아더")
-        crawllTwit("@clipservice", "메이사의노래")
-        crawllTwit("@clipservice", "작은아씨들")
-        crawllTwit("@clipservice", "하데스타운")
-        crawllTwit("@doublek_ent", "인사이드")
-        crawllTwit("@CEF56xyFgPDj", "트위터")
         print("cycle end")
         print("sleep 30 seconds")
         time.sleep(30)
         print("sleep end")
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
