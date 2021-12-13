@@ -21,7 +21,7 @@ router.get('/concert', (req, res, next) => {
 router.get('/musical', (req, res, next) => {
     offline_musical.off_mus.find(function (err, musical) {
         try {
-            res.render('offline-concert.html', { data: musical })
+            res.render('show-concert.html', { data: musical })
         } catch (err) {
             res.render(Error)
         }
@@ -31,7 +31,7 @@ router.get('/musical', (req, res, next) => {
 router.get('/play', (req, res, next) => {
     offline_play.off_ply.find(function (err, play) {
         try {
-            res.render('offline-concert.html', { data: play })
+            res.render('show-concert.html', { data: play })
         } catch (err) {
             res.render(Error)
         }
