@@ -36,6 +36,7 @@ router.get('/play', (req, res, next) => {
             res.render(Error)
         }
     })
+
 })
 
 
