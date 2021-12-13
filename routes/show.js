@@ -9,30 +9,33 @@ const offline_play = require('../mongo/offline/offline_play')
 
 
 router.get('/concert', (req, res, next) => {
-    try {
-        res.render('show-concert.html')
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    offline_concert.off_con.find(function (err, concert) {
+        try {
+            res.render('show-concert.html', { data: concert })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
 })
 
 router.get('/musical', (req, res, next) => {
-    try {
-        res.render('show-musical.html')
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    offline_musical.off_mus.find(function (err, musical) {
+        try {
+            res.render('offline-concert.html', { data: musical })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
 })
 
 router.get('/play', (req, res, next) => {
-    try {
-        res.render('show-play.html')
-    } catch (err) {
-        console.error(err)
-        next(err)
-    }
+    offline_play.off_ply.find(function (err, play) {
+        try {
+            res.render('offline-concert.html', { data: play })
+        } catch (err) {
+            res.render(Error)
+        }
+    })
 })
 
 
